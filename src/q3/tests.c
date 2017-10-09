@@ -7,7 +7,8 @@ void runTests(){
   listElement* l1 = createEl(&c, sizeof(char), &printChar);
   traverse(l1);
   printf("\n");
-  listElement* l2 = insertAfter(l1, "TEXT", sizeof(char*), &printString);
+  char string[]	 = "text";
+  listElement* l2 = insertAfter(l1, &string, sizeof(string), &printString);
   traverse(l1);
   printf("\n");
   int a = 1;

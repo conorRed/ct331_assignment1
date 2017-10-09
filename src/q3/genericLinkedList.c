@@ -11,13 +11,13 @@ listElement* createEl(void* data, size_t size, void* printFunction){
     //malloc has had an error
     return NULL; //return NULL to indicate an error.
   }
-  char* dataPointer = malloc(sizeof(char)*size);
+  void* dataPointer = malloc(size);
   if(dataPointer == NULL){
     //malloc has had an error
     free(e); //release the previously allocated memory
     return NULL; //return NULL to indicate an error.
   }
-  strcpy(dataPointer, data);
+  memmove(dataPointer, data, size);
   e->data = dataPointer;
   e->size = size;
   e->printFunction = printFunction;
